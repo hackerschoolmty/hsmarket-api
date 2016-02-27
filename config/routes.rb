@@ -9,6 +9,10 @@ Rails.application.routes.draw do
                                              defaults: {format: :json}, default: true) do
 
       resources :users, only: [:create, :update]
+      resources :shops do
+        resources :managers
+      end
+      resources :sessions
     end
   end
 

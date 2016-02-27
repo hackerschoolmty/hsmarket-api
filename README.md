@@ -29,8 +29,8 @@ Marketplace:
   description: Aplicación para administrar tiendas, productos y órdenes.
   stories:
     admin:
-      - Como admin puedo crear una tienda.
-      - Puedo crear usuarios de tipo manager.
+      - Como admin puedo crear una tienda. DONE!
+      - Puedo crear usuarios de tipo manager. DONE!
       - Puedo eliminar usuarios de tipo manager.
       - Puedo crear productos dentro de la tienda.
       - Puedo modificar existencia de productos.

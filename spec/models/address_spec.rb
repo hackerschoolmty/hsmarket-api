@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Address, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:address) { FactoryGirl.build(:address, owner: Factorygirl.create(:client)) }
+
+  context 'associations' do
+    it { should belong_to(:owner) }
+  end
 end

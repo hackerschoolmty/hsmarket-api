@@ -1,7 +1,6 @@
 class Api::V1::ShopsController < Api::V1::BaseController
   before_action :set_shop, except: [:index]
   def show
-
     render json: @shop
   end
 

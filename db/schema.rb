@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227185231) do
+ActiveRecord::Schema.define(version: 20160227194844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.string   "name"
+    t.integer  "address_type"
+    t.string   "street"
+    t.string   "street_number"
+    t.string   "suite"
+    t.string   "neighbourhood"
+    t.string   "municipality"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "zipcode"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -31,6 +50,35 @@ ActiveRecord::Schema.define(version: 20160227185231) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.integer  "quantity",   default: 0
+    t.decimal  "unit_price", default: 0.0
+    t.decimal  "total",      default: 0.0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "shop_id"
+    t.integer  "user_id"
+    t.decimal  "total"
+    t.integer  "status",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "shop_id"
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "price"
+    t.integer  "quantity"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

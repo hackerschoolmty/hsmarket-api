@@ -1,36 +1,36 @@
-# default: &default
-#   adapter: postgresql
-#   encoding: unicode
-#   pool: 5
-
-# development:
-#   <<: *default
-#   database: hsmarket_development
-
-# test:
-#   <<: *default
-#   database: hsmarket_test
-
-# production:
-#   <<: *default
-#   database: hsmarket_production
-#   username: hsmarket
-#   password: <%= ENV['HSMARKET_DATABASE_PASSWORD'] %>
-
-
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: hsmarket_development
 
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: hsmarket_test
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: hsmarket_production
+  username: hsmarket
+  password: <%= ENV['HSMARKET_DATABASE_PASSWORD'] %>
+
+
+# default: &default
+#   adapter: sqlite3
+#   pool: 5
+#   timeout: 5000
+
+# development:
+#   <<: *default
+#   database: db/development.sqlite3
+
+# test:
+#   <<: *default
+#   database: db/test.sqlite3
+
+# production:
+#   <<: *default
+#   database: db/production.sqlite3
